@@ -210,7 +210,7 @@ class StoryFragment<T, E : StoryDetails> : Fragment(),
     private fun setUpUi() {
         val touchListener = object : OnSwipeTouchListener(activity!!) {
             override fun onSwipeTop() {
-//                Toast.makeText(activity, "onSwipeTop", Toast.LENGTH_LONG).show()
+//                 Toast.makeText(activity, "onSwipeTop", Toast.LENGTH_LONG).show()
             }
 
             override fun onSwipeBottom() {
