@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
 import android.util.SparseIntArray
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
@@ -31,38 +30,38 @@ class StoriesActivity<T , E : StoryDetails> : AppCompatActivity(),
     PageViewOperator where  T : UserDetails<E>, T : Parcelable? {
     private lateinit var pagerAdapter: StoryPagerAdapter<T, E>
     private var currentPage: Int = 0
-    private lateinit var binding: ActivityStoriesBinding
+    private val binding: ActivityStoriesBinding by lazy {
+        DataBindingUtil.setContentView(this, R.layout.activity_stories)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_stories)
-        initBind()
+        fetchStories()
     }
 
-    private fun initBind() {
+    private fun fetchStories() {
         val bundle = intent.getBundleExtra(StoriesViewer.ARRAY_STORIES)
         val storyUserList = bundle!!.getParcelableArrayList<T>(StoriesViewer.STORIES_DATA)
         setUpPager(storyUserList)
     }
 
-
     override fun backPageView() {
         if (binding.viewPager.currentItem > 0) {
-            try {
-                fakeDrag(false)
-            } catch (e: Exception) {
-                //NO OP
-            }
+            movePage(false)
+        }
+    }
+
+    private fun movePage(forward: Boolean) {
+        try {
+            fakeDrag(forward)
+        } catch (e: Exception) {
+            //NO OP
         }
     }
 
     override fun nextPageView() {
         if (binding.viewPager.currentItem + 1 < binding.viewPager.adapter?.count ?: 0) {
-            try {
-                fakeDrag(true)
-            } catch (e: Exception) {
-                //NO OP
-            }
+           movePage(true)
         } else {
             //there is no next story
                 finish()
@@ -208,8 +207,12 @@ class StoriesActivity<T , E : StoryDetails> : AppCompatActivity(),
         }
     }
 
-
     companion object {
         val progressState = SparseIntArray()
+    }
+
+    override fun onDestroy() {
+        progressState.clear()
+        super.onDestroy()
     }
 }
