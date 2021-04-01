@@ -13,7 +13,7 @@
 
 <!--    <style name="StoryViewer" parent="android:Theme.Translucent.NoTitleBar"/>-->
 
-    <style name="StoryViewer.NoStatusBar" parent="android:Theme.Translucent.NoTitleBar.Fullscreen"/>
+    <style name="StoryViewer.NoStatusBar" parent="Theme.AppCompat.Light.NoActionBar"/>
 
     <style name="StoryViewer.Default" parent="android:Theme.Translucent.NoTitleBar">
         <item name="android:windowTranslucentStatus">true</item>
