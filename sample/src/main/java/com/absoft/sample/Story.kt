@@ -6,13 +6,13 @@ import com.absoft.storyViewer.models.UserDetails
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class Story(private val link : String?, private val date : Long) : StoryDetails(), Parcelable {
+class Story(private val link : String?, private val date : String) : StoryDetails(), Parcelable {
 
     override fun getStoryLink(): String? {
         return link
     }
 
-    override fun getStoryDateInMillis(): Long {
+    override fun getStoryDate(): String {
         return date
     }
 

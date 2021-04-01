@@ -23,25 +23,25 @@ class MainActivity : AppCompatActivity() {
             storyUrls.add(
                 Story(
                     "https://player.vimeo.com/external/422787651.sd.mp4?s=ec96f3190373937071ba56955b2f8481eaa10cce&profile_id=165&oauth2_token_id=57447761",
-                    0L
+                    "0L"
                 )
             )
             storyUrls.add(
                 Story(
                     "https://images.pexels.com/photos/1433052/pexels-photo-1433052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                    0L
+                    "0L"
                 )
             )
             storyUrls.add(
                 Story(
                     "https://images.pexels.com/photos/1366630/pexels-photo-1366630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                    0L
+                    "0L"
                 )
             )
             storyUrls.add(
                 Story(
                     "https://images.pexels.com/photos/1067333/pexels-photo-1067333.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                    0L
+                    "0L"
                 )
             )
             arrayList.add(User("ADds", "https://randomuser.me/api/portraits/women/11.jpg", storyUrls))

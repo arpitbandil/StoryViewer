@@ -5,12 +5,10 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
-import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.absoft.storyViewer.animation.OnSwipeTouchListener
@@ -144,10 +142,10 @@ class StoryFragment<T, E : StoryDetails> : Fragment(),
             Glide.with(this).load(stories[counter].getStoryLink()).into(binding.storyDisplayImage)
         }
 
-        val cal: Calendar = Calendar.getInstance(Locale.ENGLISH).apply {
-            timeInMillis = stories[counter].getStoryDateInMillis()
+        binding.storyDisplayTime.text = stories[counter].getStoryDate()
+        binding.ivClose.setOnClickListener {
+            activity?.finish()
         }
-        binding.storyDisplayTime.text = DateFormat.format("MM-dd-yyyy HH:mm:ss", cal).toString()
     }
 
     private fun initializePlayer() {

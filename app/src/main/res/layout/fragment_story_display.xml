@@ -25,7 +25,8 @@
             style="?android:attr/progressBarStyleInverse"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="50dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,6 +109,19 @@
                         tools:text="nm ago" />
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_close"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_close"
+                    android:layout_margin="8dp" />
+
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
